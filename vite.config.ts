@@ -3,11 +3,11 @@ import react from '@vitejs/plugin-react'
 import path from 'path'
 
 export default defineConfig({
-  base: '/labrary/', // Set base path for GitHub Pages
+  base: '/labrary/', // Required for GitHub Pages
   plugins: [react()],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      '@': path.resolve(process.cwd(), 'src'),
     },
   },
 })
