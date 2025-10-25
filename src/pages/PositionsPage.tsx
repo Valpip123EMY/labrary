@@ -1,7 +1,6 @@
 import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { researchOpportunities } from '../data/opportunities';
-import { ResearchOpportunity } from '../types';
 import { OpportunityCard } from '../components/OpportunityCard';
 import { Header } from '../components/Header';
 

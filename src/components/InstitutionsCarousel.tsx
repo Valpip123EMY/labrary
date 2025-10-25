@@ -63,9 +63,7 @@ const institutions = [
 // Create a larger set of items for smoother continuous scrolling
 export const InstitutionsCarousel = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const animationFrameId = useRef<number>();
   const scrollAmount = useRef(0);
-  const items = [...institutions, ...institutions, ...institutions, ...institutions];
 
   // Auto-scroll effect with smooth continuous motion
   useEffect(() => {
@@ -162,7 +160,7 @@ export const InstitutionsCarousel = () => {
         </div>
       </div>
       
-      <style jsx>{`
+  <style>{`
         @keyframes scroll {
           0% { transform: translateX(0); }
           100% { transform: translateX(calc(-200px * ${institutions.length})); }

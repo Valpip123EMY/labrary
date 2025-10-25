@@ -158,7 +158,7 @@ const Header = () => (
 );
 
 function App() {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery] = useState('');
   const [selectedOpportunity, setSelectedOpportunity] = useState<ResearchOpportunity | null>(null);
   const location = useLocation();
   const isHomePage = location.pathname === '/';
@@ -356,11 +356,7 @@ function App() {
           <Route path="/all-positions" element={
             <PageTransition>
               <div className="pt-[70px]">
-                <AllPositionsPage 
-                  searchQuery={searchQuery} 
-                  onSearchChange={setSearchQuery} 
-                  onOpportunityClick={setSelectedOpportunity} 
-                />
+                <AllPositionsPage />
               </div>
             </PageTransition>
           } />

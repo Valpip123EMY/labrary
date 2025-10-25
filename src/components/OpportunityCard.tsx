@@ -15,12 +15,12 @@ export function OpportunityCard({ opportunity, onViewDetails }: OpportunityCardP
       {/* Image */}
       <div className="relative h-[170px] overflow-hidden bg-gray-100">
         <img 
-          src={opportunity.image || getPlaceholderImage(opportunity.title, opportunity.institution, opportunity.category)}
+          src={opportunity.image || getPlaceholderImage(opportunity.title, opportunity.category)}
           alt={opportunity.title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           onError={(e) => {
             const target = e.target as HTMLImageElement;
-            target.src = getPlaceholderImage(opportunity.title, opportunity.institution, opportunity.category);
+            target.src = getPlaceholderImage(opportunity.title, opportunity.category);
           }}
         />
         <div className="absolute top-4 left-4">

@@ -3,10 +3,6 @@ import { useState, useMemo, useEffect } from 'react';
 import { Header } from '../components/Header';
 
 // Import local logo images
-import stanfordLogo from '../assets/stanford-logo.png';
-import oxfordLogo from '../assets/oxford-logo.png';
-import tokyoLogo from '../assets/tokyo-logo.png';
-import nusLogo from '../assets/nus-logo.png';
 
 const institutions = [
   {

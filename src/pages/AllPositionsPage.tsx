@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
-import { Link, useSearchParams, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { researchOpportunities } from '../data/opportunities';
 import { ResearchOpportunity } from '../types';
 import { OpportunityModal } from '../components/OpportunityModal';
@@ -14,16 +14,9 @@ const AllPositionsPage = () => {
     location: ''
   });
   const [selectedOpp, setSelectedOpp] = useState<ResearchOpportunity | null>(null);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6; // 6 items per page for 2x3 grid
-  const location = useLocation();
-  const navigate = useNavigate();
 
-  // Close mobile menu when location changes
-  useEffect(() => {
-    setIsMenuOpen(false);
-  }, [location]);
   // Initialize search from URL
   useEffect(() => {
     const search = searchParams.get('search');
@@ -92,42 +85,6 @@ const AllPositionsPage = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Generate page numbers to display
-  const getPageNumbers = () => {
-    const pageNumbers = [];
-    const maxVisiblePages = 3; // Show 3 page numbers at a time
-    
-    if (totalPages <= maxVisiblePages) {
-      // Show all pages if total pages are less than or equal to maxVisiblePages
-      for (let i = 1; i <= totalPages; i++) {
-        pageNumbers.push(i);
-      }
-    } else {
-      // Show first page, current page with neighbors, and last page
-      const startPage = Math.max(1, Math.min(currentPage - 1, totalPages - maxVisiblePages + 1));
-      const endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
-      
-      if (startPage > 1) {
-        pageNumbers.push(1);
-        if (startPage > 2) {
-          pageNumbers.push('...');
-        }
-      }
-      
-      for (let i = startPage; i <= endPage; i++) {
-        pageNumbers.push(i);
-      }
-      
-      if (endPage < totalPages) {
-        if (endPage < totalPages - 1) {
-          pageNumbers.push('...');
-        }
-        pageNumbers.push(totalPages);
-      }
-    }
-    
-    return pageNumbers;
-  };
 
   return (
     <div className="min-h-screen bg-white">

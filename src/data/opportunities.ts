@@ -5,7 +5,7 @@ import { getPlaceholderImage } from '../utils/imageUtils';
 const withPlaceholderImages = (opportunities: ResearchOpportunity[]): ResearchOpportunity[] => {
   return opportunities.map(opp => ({
     ...opp,
-    image: opp.image || getPlaceholderImage(opp.title, opp.institution, opp.category)
+  image: opp.image || getPlaceholderImage(opp.title, opp.category)
   }));
 };
 
