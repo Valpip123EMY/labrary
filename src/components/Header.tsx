@@ -1,4 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 interface HeaderProps {
   fixed?: boolean;
@@ -6,9 +7,24 @@ interface HeaderProps {
 
 export function Header({ fixed = true }: HeaderProps) {
   const location = useLocation();
-  
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 10;
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+      }
+    };
+
+    document.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      document.removeEventListener('scroll', handleScroll);
+    };
+  }, [scrolled]);
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-[1000] bg-white shadow-sm transition-transform duration-300">
+    <header className={`fixed top-0 left-0 right-0 z-[1000] bg-white/80 backdrop-blur-md transition-all duration-300 ${scrolled ? 'shadow-sm border-b border-gray-200' : ''}`}>
       <div className="w-full px-6 md:px-12 lg:px-40">
         <nav className="flex items-center justify-between h-[80px] max-w-[2000px] mx-auto">
           <Link to="/" className="flex items-center font-light gap-2 -ml-2">

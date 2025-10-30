@@ -1,7 +1,6 @@
 import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiSearch, FiPaperclip, FiLoader, FiPlus, FiMinus, FiFilter, FiDownload, FiShare2, FiBookmark, FiLayers, FiRefreshCw } from 'react-icons/fi';
-import Footer from '@/components/Footer';
 
 interface PaperData {
   id: string;
@@ -734,32 +733,36 @@ export default function ResearchExplorer() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       {/* Search and Loading Bar Container */}
-      <div className="sticky top-0 z-40 bg-background/80 backdrop-blur-sm">
-        <div className="max-w-3xl mx-auto px-4 pt-0.5 pb-0.5">
+      <div className="sticky top-0 z-40 bg-background/80 backdrop-blur-sm w-full">
+        <div className="w-full pl-[calc(1.5rem-6px)] pr-6 md:pl-[calc(3rem-6px)] md:pr-12 lg:pl-[calc(10rem-6px)] lg:pr-40 pt-1 pb-1">
           {/* Search Bar */}
-          <div className="flex items-center gap-2 mb-0.5">
+          <div className="flex items-center gap-3 mb-1.5">
             <div className="relative flex-1">
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-                placeholder="Search research..."
-                className="w-full px-3 py-1 text-sm border border-border/50 rounded-md bg-background/70 focus:outline-none focus:ring-1 focus:ring-primary/20 focus:border-primary/30"
+                placeholder="Search research papers, topics, or authors..."
+                className="w-full px-4 py-3 text-base border border-border/60 rounded-lg bg-background/80 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all duration-200 shadow-sm"
                 disabled={isLoading}
               />
             </div>
             <button
               onClick={handleSearch}
               disabled={isLoading || !searchQuery.trim()}
-              className={`p-1.5 rounded-md flex-shrink-0 ${
+              className={`p-3 rounded-lg flex-shrink-0 transition-all duration-200 ${
                 isLoading || !searchQuery.trim()
                   ? 'bg-muted text-muted-foreground cursor-not-allowed'
-                  : 'bg-primary text-primary-foreground hover:bg-primary/90'
+                  : 'bg-primary text-primary-foreground hover:bg-primary/90 shadow-md hover:shadow-lg transform hover:-translate-y-0.5'
               }`}
               title={isLoading ? 'Searching...' : 'Search'}
             >
-              {isLoading ? <FiLoader className="animate-spin w-4 h-4" /> : <FiSearch className="w-4 h-4" />}
+              {isLoading ? (
+                <FiLoader className="animate-spin w-5 h-5" />
+              ) : (
+                <FiSearch className="w-5 h-5" />
+              )}
             </button>
           </div>
 
@@ -791,9 +794,9 @@ export default function ResearchExplorer() {
         </div>
       </div>
 
-      <main className="flex-1 p-4 md:p-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="relative mb-6 max-w-2xl mx-auto">
+      <main className="flex-1">
+        <div className="w-full px-[calc(1.5rem-6px)] pr-6 md:pl-[calc(3rem-6px)] md:pr-12 lg:pl-[calc(10rem-6px)] lg:pr-40">
+          <div className="relative mb-6 w-full">
             <p className="mt-2 text-sm text-muted-foreground text-center">
               Try: "machine learning", "quantum computing", or "climate change"
             </p>
@@ -1147,7 +1150,6 @@ export default function ResearchExplorer() {
           )}
         </div>
       </main>
-      <Footer />
     </div>
   );
 }
