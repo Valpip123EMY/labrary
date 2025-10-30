@@ -1,34 +1,57 @@
 import { Link, useLocation } from 'react-router-dom';
 
-export function Header() {
+interface HeaderProps {
+  fixed?: boolean;
+}
+
+export function Header({ fixed = true }: HeaderProps) {
   const location = useLocation();
   
   return (
-    <header className="bg-white border-b border-gray-100 fixed top-0 left-0 right-0 z-[1000] shadow-sm">
-      <div className="w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
-        <nav className="flex items-center justify-between py-6">
-          <Link to="/" className="flex items-center text-2xl font-light gap-1">
+    <header className={`${fixed ? 'fixed' : 'relative'} -top-2 left-0 right-0 z-[1000]`}>
+      <div className="w-full px-6 md:px-12 lg:px-40">
+        <nav className="flex items-center justify-between h-[80px] max-w-[2000px] mx-auto">
+          <Link to="/" className="flex items-center font-light gap-2 -ml-2">
             <img 
-              src="https://cdn-icons-png.freepik.com/512/12377/12377562.png" 
-              alt="Labrary Research Logo" 
-              className="h-8 w-8 object-contain"
+              src="public\data\labrary_research_logo-modified.png"
+              alt="Labrary Research Logo"
+              className="h-9 w-9 object-contain"
             />
             <div>
-              <span className="text-gray-900 font-light">Labrary</span><span className="text-gray-400"></span>
+              <span className="text-gray-900 font-serif font-normal text-[22px] leading-none flex items-center">Labrary</span>
             </div>
           </Link>
           <div className="hidden md:flex items-center space-x-8">
-            <Link to="/" className={`${location.pathname === '/' ? 'text-gray-900' : 'text-gray-600 hover:text-gray-900'}`}>
-              Home
+            <Link 
+              to="/all-positions" 
+              className={`flex items-center text-[15px] transition-colors font-serif font-normal ${
+                location.pathname === '/all-positions' 
+                  ? 'text-gray-900' 
+                  : 'text-gray-600 hover:text-gray-900'
+              }`}
+            >
+              Opportunities
             </Link>
-            <Link to="/all-positions" className={`${location.pathname === '/all-positions' ? 'text-gray-900' : 'text-gray-600 hover:text-gray-900'}`}>
-              Positions
+            <Link 
+              to="/uncharted" 
+              className={`flex items-center text-[15px] transition-colors font-serif font-normal ${
+                location.pathname === '/uncharted' 
+                  ? 'text-gray-900' 
+                  : 'text-gray-600 hover:text-gray-900'
+              }`}
+            >
+              <span>Uncharted</span>
+              <span className="ml-1.5 text-xs border border-slate-600 text-slate-600 px-1.5 py-0.5">BETA</span>
             </Link>
-            <Link to="/institutions" className={`${location.pathname === '/institutions' ? 'text-gray-900' : 'text-gray-600 hover:text-gray-900'}`}>
-              Institutions
-            </Link>
-            <Link to="/mission" className={`${location.pathname === '/mission' ? 'text-gray-900' : 'text-gray-600 hover:text-gray-900'}`}>
-              Mission
+            <Link 
+              to="/mission" 
+              className={`flex items-center text-[15px] transition-colors font-serif font-normal ${
+                location.pathname === '/mission' 
+                  ? 'text-gray-900' 
+                  : 'text-gray-600 hover:text-gray-900'
+              }`}
+            >
+              About
             </Link>
           </div>
         </nav>

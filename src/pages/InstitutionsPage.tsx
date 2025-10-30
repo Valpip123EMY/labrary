@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState, useMemo, useEffect } from 'react';
 import { Header } from '../components/Header';
+import Footer from '../components/Footer';
 
 // Import local logo images
 
@@ -358,55 +359,7 @@ const InstitutionsPage = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-white border-t border-gray-200">
-        <div className="container px-8 md:px-12 py-20">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-            <div className="space-y-3">
-              <Link to="/" className="flex items-center gap-1">
-                <img 
-                  src="https://cdn-icons-png.freepik.com/512/12377/12377562.png" 
-                  alt="Labrary Research Logo" 
-                  className="h-6 w-6 object-contain"
-                />
-                <div className="text-[18px] font-light">
-                  <span className="text-gray-900">Labrary</span><span className="text-gray-400"></span>
-                </div>
-              </Link>
-              <p className="text-[14px] text-gray-600 leading-[1.7] font-light max-w-xs">
-                Connecting exceptional researchers with world-class institutions.
-              </p>
-            </div>
-            <div className="space-y-3">
-              <h4 className="text-gray-900 font-semibold text-[12px] uppercase tracking-wider">Platform</h4>
-              <div className="space-y-2.5">
-                <Link to="/all-positions" className="block text-gray-600 hover:text-gray-900 text-[14px] transition-colors font-light">Opportunities</Link>
-                <Link to="/institutions" className="block text-gray-600 hover:text-gray-900 text-[14px] transition-colors font-light">Institutions</Link>
-                <a href="#" className="block text-gray-600 hover:text-gray-900 text-[14px] transition-colors font-light">Success Stories</a>
-              </div>
-            </div>
-            <div className="space-y-3">
-              <h4 className="text-gray-900 font-semibold text-[12px] uppercase tracking-wider">Company</h4>
-              <div className="space-y-2.5">
-                <Link to="/mission" className="block text-gray-600 hover:text-gray-900 text-[14px] transition-colors font-light">About</Link>
-                <a href="#" className="block text-gray-600 hover:text-gray-900 text-[14px] transition-colors font-light">Contact</a>
-                <a href="#" className="block text-gray-600 hover:text-gray-900 text-[14px] transition-colors font-light">Careers</a>
-              </div>
-            </div>
-            <div className="space-y-3">
-              <h4 className="text-gray-900 font-semibold text-[12px] uppercase tracking-wider">Legal</h4>
-              <div className="space-y-2.5">
-                <a href="#" className="block text-gray-600 hover:text-gray-900 text-[14px] transition-colors font-light">Privacy Policy</a>
-                <a href="#" className="block text-gray-600 hover:text-gray-900 text-[14px] transition-colors font-light">Terms of Service</a>
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-gray-200 mt-16 pt-8">
-            <p className="text-gray-500 text-[13px] text-center font-light">
-              &copy; {new Date().getFullYear()} labrary.research. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
