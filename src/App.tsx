@@ -47,17 +47,19 @@ const UniversityCarousel = () => {
           </div>
         </div>
       </div>
-      <style jsx global>{`
-        @keyframes scroll {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          [style*="animation:"] {
-            animation: none !important;
+      <style>
+        {`
+          @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
           }
-        }
-      `}</style>
+          @media (prefers-reduced-motion: reduce) {
+            [style*="animation:"] {
+              animation: none !important;
+            }
+          }
+        `}
+      </style>
       </div>
     </div>
   );
@@ -66,9 +68,11 @@ const UniversityCarousel = () => {
 function App() {
   return (
     <div className="min-h-screen relative">
+      {/* Header */}
+      <Header />
+      
       {/* Content */}
-      <div className="relative z-10">
-        <Header fixed={false} />
+      <div className="relative z-10 pt-[80px]">
         <Routes>
             <Route path="/" element={
               <>
@@ -84,7 +88,7 @@ function App() {
                     />
                   </div>
 
-                  <div className="w-full px-6 md:px-12 lg:px-40 mx-auto flex flex-col items-start text-left pt-2">
+                  <div className="w-full pl-[18px] md:pl-[34px] lg:pl-[148px] pr-0 mx-0 flex flex-col items-start text-left pt-2">
                     <div className="w-full max-w-4xl space-y-6">
                       {/* Heading */}
                       <div className="mb-2">
@@ -93,13 +97,13 @@ function App() {
                             Research 
                           </div>
                           <div className="text-8xl md:text-9xl lg:text-[6.5rem] font-light tracking-tighter text-slate-900 leading-[0.9]">
-                            <TypeWriter words={['democratized', ' made accessible', 'made inclusive']} delay={500} />
+                            <TypeWriter words={['democratized', ' made accessible', 'made inclusive']} />
                           </div>
                         </h1>
                       </div>
 
                       {/* Description */}
-                      <div className="my-2 max-w-2xl">
+                      <div className="my-2 max-w-2xl pl-0">
                         <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-light space-y-2">
                           <span className="block">Connecting exceptional researchers with world-class institutions.</span>
                           <span className="block">AI-powered matching. Always free. Forever accessible.</span>
@@ -108,7 +112,7 @@ function App() {
 
                       {/* CTA Buttons */}
                       <div className="h-6"></div>
-                      <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
+                      <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center pl-0">
                         <Link 
                           to="/all-positions" 
                           className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-slate-900 text-white text-base font-medium tracking-wide hover:bg-slate-800 transition-all duration-200"
@@ -133,9 +137,9 @@ function App() {
 
                 {/* Engineers Section */}
                 <section className="pt-0 pb-16 -mt-[12rem] bg-white w-full overflow-hidden">
-                  <div className="w-full px-6 md:px-12 lg:px-40 mx-auto">
+                  <div className="w-full px-[19.5px] md:px-[45px] lg:px-[151px] mx-auto">
                     <div className="max-w-7xl mx-auto">
-                      <p className="text-center text-xs font-medium text-slate-400 mb-2 tracking-widest uppercase">Engineers from</p>
+                      <p className="text-center text-xs font-medium text-slate-400 mb-2 tracking-widest uppercase">Made by engineers from</p>
                       <div className="relative w-full overflow-hidden h-16">
                         <div 
                           className="flex items-center absolute top-0 left-0 h-full whitespace-nowrap"
@@ -186,7 +190,7 @@ function App() {
                       </div>
                     </div>
                   </div>
-                  <style jsx global>{`
+                  <style>{`
                     @keyframes scroll {
                       0% {
                         transform: translateX(0);
@@ -207,7 +211,7 @@ function App() {
                 <section className="pt-0 pb-32 bg-white relative">
                   <div className="absolute inset-0 bg-white z-0"></div>
                   
-                  <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+                  <div className="max-w-7xl mx-auto pl-[14px] pr-6 lg:pl-[22px] lg:pr-8 relative z-10">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                       {/* Text Content */}
                       <div className="space-y-8">
@@ -320,80 +324,77 @@ function App() {
                 </div>
 
                 {/* FAQ Section */}
-                <section className="relative py-16 bg-white">
-                  
-                  <div className="max-w-5xl mx-auto px-6 lg:px-8 relative">
-                    <div className="text-center mb-26">
+                <section className="relative py-16 bg-white w-full">
+                  <div className="w-full pl-[14px] md:pl-[50px] lg:pl-[150px] pr-6 md:pr-12 lg:pr-40">
+                    <div className="text-center mb-16 max-w-3xl mx-auto">
                       <h2 className="space-y-2">
-                        <div className="text-5xl md:text-6xl lg:text-7xl font-light tracking-tighter text-slate-900 leading-none">
+                        <div className="text-5xl md:text-6xl font-light tracking-tighter text-slate-900 leading-none">
                           Your questions,
                         </div>
-                        <div className="text-5xl md:text-6xl lg:text-7xl font-light tracking-tighter text-slate-900 leading-none">
+                        <div className="text-5xl md:text-6xl font-light tracking-tighter text-slate-900 leading-none">
                           <span className="italic font-serif">answered</span>.
                         </div>
                       </h2>
-                      <p className="mt-8 text-lg md:text-xl text-slate-600 max-w-2xl mx-auto font-light leading-relaxed">
-                        Everything you need to know about finding and securing your ideal research position.
-                      </p>
+                      
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-x-12 gap-y-16 max-w-6xl mx-auto">
+                    <div className="grid md:grid-cols-2 gap-x-12 gap-y-12 w-full max-w-[1800px] mx-auto">
                       {/* Left Column */}
-                      <div className="space-y-16">
+                      <div className="space-y-10">
                         <div className="space-y-2">
-                          <h3 className="text-2xl font-light text-slate-900">
-                            How does Labrary connect me with research opportunities?
+                          <h3 className="text-xl font-light text-slate-900 font-serif italic">
+                            How does Labrary work?
                           </h3>
                           <p className="text-slate-600 leading-relaxed font-light">
-                            Our AI analyzes your academic profile, research interests, and skills to match you with the most relevant opportunities across top institutions. We ensure perfect alignment with your academic journey.
+                            Our AI analyzes your profile to match you with the most relevant research opportunities at top institutions.
                           </p>
                         </div>
 
                         <div className="space-y-2">
-                          <h3 className="text-2xl font-light text-slate-900">
-                            How do I create a strong profile?
+                          <h3 className="text-xl font-light text-slate-900 font-serif italic">
+                            Profile tips?
                           </h3>
                           <p className="text-slate-600 leading-relaxed font-light">
-                            Highlight your academic background, research experience, technical skills, and research interests. The more detailed your profile, the better our AI can match you with ideal opportunities.
+                            Highlight your academic background, skills, and research interests for better matches.
                           </p>
                         </div>
 
                         <div className="space-y-2">
-                          <h3 className="text-2xl font-light text-slate-900">
-                            How should I prepare my application?
+                          <h3 className="text-xl font-light text-slate-900 font-serif italic">
+                            Application advice?
                           </h3>
                           <p className="text-slate-600 leading-relaxed font-light">
-                            Review position requirements carefully, tailor your materials to highlight relevant experience, and be ready to discuss your research interests and goals in detail.
+                            Tailor your materials and be ready to discuss your research goals in detail.
                           </p>
                         </div>
                       </div>
 
                       {/* Right Column */}
-                      <div className="space-y-16">
+                      <div className="space-y-10">
                         <div className="space-y-2">
-                          <h3 className="text-2xl font-light text-slate-900">
-                            What makes Labrary different from other platforms?
+                          <h3 className="text-xl font-light text-slate-900 font-serif italic">
+                            What makes Labrary special?
                           </h3>
                           <p className="text-slate-600 leading-relaxed font-light">
-                            We focus exclusively on academic research, partnering directly with leading institutions to provide vetted, high-quality opportunities that truly advance your career.
+                            We focus exclusively on academic research, working directly with leading institutions.
                           </p>
                         </div>
 
                         <div className="space-y-2">
-                          <h3 className="text-2xl font-light text-slate-900">
-                            What types of positions are available?
+                          <h3 className="text-xl font-light text-slate-900 font-serif italic">
+                            Available positions?
                           </h3>
                           <p className="text-slate-600 leading-relaxed font-light">
-                            From undergraduate research assistant roles to postdoctoral positions, we cover the full spectrum of academic research opportunities across all major disciplines.
+                            From undergrad to postdoc roles across all major disciplines.
                           </p>
                         </div>
 
                         <div className="space-y-2">
-                          <h3 className="text-2xl font-light text-slate-900">
-                            Is there support during the application process?
+                          <h3 className="text-xl font-light text-slate-900 font-serif italic">
+                            Application support?
                           </h3>
                           <p className="text-slate-600 leading-relaxed font-light">
-                            Absolutely! We provide resources and guidance to help you craft strong applications and prepare for interviews, ensuring you put your best foot forward.
+                            We provide resources to help with applications and interviews.
                           </p>
                         </div>
                       </div>

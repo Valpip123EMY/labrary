@@ -100,7 +100,27 @@ const researchOpportunities = [
   }
 ];
 
-const OpportunityModal = ({ opportunity, onClose }) => {
+interface OpportunityModalProps {
+  opportunity: {
+    id: number;
+    title: string;
+    institution: string;
+    category: string;
+    type: string;
+    location: string;
+    deadline: string;
+    description: string;
+    image: string;
+    tags: string[];
+  } | null;
+  onClose: () => void;
+}
+
+const OpportunityModal: React.FC<OpportunityModalProps> = ({ opportunity, onClose }) => {
+  if (!opportunity) {
+    return null; // or return a loading state or error message
+  }
+
   return (
     <div 
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/20 backdrop-blur-sm"
@@ -170,7 +190,7 @@ const OpportunityModal = ({ opportunity, onClose }) => {
           <div className="space-y-3 pt-4">
             <h3 className="text-xl font-light text-slate-900">Key areas</h3>
             <div className="flex flex-wrap gap-2">
-              {opportunity.tags.map((tag, index) => (
+              {opportunity.tags.map((tag: string, index: number) => (
                 <span 
                   key={index}
                   className="px-3 py-1.5 bg-slate-50 text-slate-700 text-sm font-light border border-slate-200"
@@ -199,26 +219,37 @@ const AllPositionsPage = () => {
     type: '',
     location: ''
   });
-  const [selectedOpp, setSelectedOpp] = useState(null);
+  const [selectedOpp, setSelectedOpp] = useState<{
+    id: number;
+    title: string;
+    institution: string;
+    category: string;
+    type: string;
+    location: string;
+    deadline: string;
+    description: string;
+    image: string;
+    tags: string[];
+  } | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
 
-  const allCategories = useMemo(() => {
-    const categories = new Set();
+  const allCategories = useMemo((): string[] => {
+    const categories = new Set<string>();
     researchOpportunities.forEach(opp => categories.add(opp.category));
-    return Array.from(categories);
+    return Array.from(categories).sort();
   }, []);
 
-  const allTypes = useMemo(() => {
-    const types = new Set();
+  const allTypes = useMemo((): string[] => {
+    const types = new Set<string>();
     researchOpportunities.forEach(opp => types.add(opp.type));
-    return Array.from(types);
+    return Array.from(types).sort();
   }, []);
 
-  const allLocations = useMemo(() => {
-    const locations = new Set();
-    researchOpportunities.forEach(opp => locations.add(opp.location.split(',').pop()?.trim() || ''));
-    return Array.from(locations).filter(Boolean);
+  const allLocations = useMemo((): string[] => {
+    const locations = new Set<string>();
+    researchOpportunities.forEach(opp => locations.add(opp.location));
+    return Array.from(locations).sort();
   }, []);
 
   const filteredOpportunities = useMemo(() => {
@@ -253,7 +284,7 @@ const AllPositionsPage = () => {
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = filteredOpportunities.slice(indexOfFirstItem, indexOfLastItem);
 
-  const paginate = (pageNumber) => {
+  const paginate = (pageNumber: number) => {
     if (pageNumber < 1) pageNumber = 1;
     if (pageNumber > totalPages) pageNumber = totalPages;
     setCurrentPage(pageNumber);

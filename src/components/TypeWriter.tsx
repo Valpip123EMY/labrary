@@ -6,7 +6,7 @@ interface TypeWriterProps {
   className?: string;
 }
 
-export const TypeWriter = ({ words, delay, className = '' }: TypeWriterProps) => {
+export const TypeWriter = ({ words, className = '' }: Omit<TypeWriterProps, 'delay'>) => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [currentText, setCurrentText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);

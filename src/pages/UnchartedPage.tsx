@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiSearch, FiPaperclip, FiLoader, FiPlus, FiMinus, FiFilter, FiDownload, FiShare2, FiBookmark, FiTrendingUp, FiAlertCircle, FiCheckCircle, FiLayers, FiRefreshCw } from 'react-icons/fi';
+import { FiSearch, FiPaperclip, FiLoader, FiPlus, FiMinus, FiFilter, FiDownload, FiShare2, FiBookmark, FiLayers, FiRefreshCw } from 'react-icons/fi';
 import Footer from '@/components/Footer';
 
 interface PaperData {
