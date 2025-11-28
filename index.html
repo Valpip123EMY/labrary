@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Labry Research - Coming Soon</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=EB+Garamond:400,700&display=swap" rel="stylesheet">
         <style>
             :root {
                 --color-bg: #F8F9FA;
@@ -20,12 +21,22 @@
                 --color-secondary: #6B7280;
                 --color-footer: #9CA3AF;
                 --color-divider: #E5E7EB;
-                --font-main: 'Inter', 'SF Pro Display', 'Segoe UI', Arial, sans-serif;
+                    --font-main: 'EB Garamond', Garamond, serif;
+                    --color-bg: #eafbe4;
+                    --color-bg-gradient-top: #eafbe4;
+                    --color-bg-gradient-bottom: #eafbe4;
+                    --color-card-bg: transparent;
+                    --color-card-border: transparent;
+                    --color-card-shadow: none;
+                    --color-primary: #0a3d1a;
+                    --color-secondary: #0a3d1a;
+                    --color-footer: #0a3d1a;
+                    --color-divider: #eafbe4;
             }
             html, body, .wrapper { height: 100%; margin: 0; padding: 0; }
             body {
                 font-family: var(--font-main);
-                background: linear-gradient(to bottom, var(--color-bg-gradient-top), var(--color-bg-gradient-bottom));
+                    background: var(--color-bg);
                 min-height: 100vh;
                 animation: fadeIn 0.6s ease-in-out;
             }
@@ -91,11 +102,11 @@
                 flex-wrap: wrap;
             }
             .countdown__card {
-                background: var(--color-card-bg);
-                border: 1px solid var(--color-card-border);
-                box-shadow: var(--color-card-shadow);
-                border-radius: 12px;
-                padding: 32px 24px;
+                background: none;
+                border: none;
+                box-shadow: none;
+                border-radius: 0;
+                padding: 0;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -127,7 +138,7 @@
                 .countdown__card {
                     min-width: 0;
                     width: 100%;
-                    padding: 18px 8px;
+                        padding: 0;
                 }
                 .countdown__number {
                     font-size: 36px;
@@ -137,7 +148,7 @@
                                 font-size: 24px;
                             }
                             .countdown__card {
-                                padding: 12px 4px;
+                                  padding: 0;
                             }
                         }
             }
