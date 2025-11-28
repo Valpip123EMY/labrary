@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Job Aggregator</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">🔬 Research Jobs</h1>
+            <div class="nav-buttons">
+                <button class="nav-btn active" data-view="list">📋 Jobs</button>
+                <button class="nav-btn" data-view="map">🗺️ Map</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Jobs List View -->
+        <div id="list-view" class="view active">
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search jobs by title, description, or tags...">
+            </div>
+            <div id="jobs-container" class="jobs-grid">
+                <div class="loading">Loading jobs...</div>
+            </div>
+        </div>
+
+        <!-- Map View -->
+        <div id="map-view" class="view">
+            <div id="map"></div>
+            <div class="map-controls">
+                <button id="locate-btn" class="btn-locate">📍 My Location</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Job Detail Modal -->
+    <div id="job-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="job-details"></div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
