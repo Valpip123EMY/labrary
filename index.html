@@ -1,72 +1,73 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Labry Research - Join the Waitlist</title>
+    <title>Labry Research - Coming Soon</title>
     <style>
         body {
             margin: 0;
             font-family: 'Segoe UI', Arial, sans-serif;
-            background: #AEE1C9;
+            min-height: 100vh;
+            background: linear-gradient(120deg, #6fdcae 0%, #1a2330 100%);
+            color: #fff;
         }
-        .container {
+        .main-content {
             max-width: 600px;
-            margin: 60px auto;
-            background: #fff;
-            border-radius: 16px;
-            box-shadow: 0 4px 24px rgba(67,160,71,0.08);
-            padding: 2.5rem 2rem 2rem 2rem;
-            text-align: center;
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 7vw;
+            transform: translateY(-50%);
         }
         .logo {
-            margin-bottom: 1.5rem;
-            font-weight: bold;
-            font-size: 1.3rem;
-            color: #43a047;
+            font-size: 1.2rem;
+            font-weight: 600;
             letter-spacing: 1px;
+            margin-bottom: 2.5rem;
+            color: #e0fff6;
+        }
+        .subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+            color: #e0fff6;
         }
         h1 {
-            font-size: 2.2rem;
-            margin-bottom: 0.7rem;
-            color: #222;
-        }
-        p {
-            font-size: 1.15rem;
-            color: #444;
-            margin-bottom: 1.5rem;
-        }
-        .waitlist-btn {
-            background: #6fdcae;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
             color: #fff;
-            border: none;
-            border-radius: 6px;
-            padding: 0.8rem 2.2rem;
+            line-height: 1.1;
+        }
+        .desc {
             font-size: 1.1rem;
-            font-weight: 500;
-            cursor: pointer;
-            box-shadow: 0 2px 8px rgba(67,160,71,0.08);
-            transition: background 0.2s;
+            color: #e0fff6;
+            margin-bottom: 2.5rem;
+            max-width: 400px;
         }
-        .waitlist-btn:hover {
-            background: #43a047;
-        }
-        .mockup {
-            margin-top: 2.5rem;
-            width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 2px 12px rgba(67,160,71,0.10);
+        @media (max-width: 700px) {
+            .main-content {
+                left: 0;
+                right: 0;
+                margin: auto;
+                padding: 2rem;
+                position: static;
+                transform: none;
+            }
+            h1 {
+                font-size: 2.2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="main-content">
         <div class="logo">Labry Research</div>
-        <h1>Join the Waitlist</h1>
-        <p>Are you ready to get better results with your <b>&lt;topic&gt;</b> in 2024?</p>
-        <button class="waitlist-btn">Join the Waitlist</button>
-        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" alt="App Mockup" class="mockup">
+        <div class="subtitle">We're almost there</div>
+        <h1>Coming Soon</h1>
+        <div class="desc">Join our newsletter to be the first to know when Labry launches and receive updates on the latest in research and technology.</div>
     </div>
 </body>
 </html>
