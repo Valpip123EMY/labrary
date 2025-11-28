@@ -1,52 +1,73 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research Job Aggregator</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link rel="stylesheet" href="styles.css">
+    <title>Labry Research - Coming Soon</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(120deg, #6fdcae 0%, #1a2330 100%);
+            color: #fff;
+        }
+        .main-content {
+            max-width: 600px;
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 7vw;
+            transform: translateY(-50%);
+        }
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 2.5rem;
+            color: #e0fff6;
+        }
+        .subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+            color: #e0fff6;
+        }
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            color: #fff;
+            line-height: 1.1;
+        }
+        .desc {
+            font-size: 1.1rem;
+            color: #e0fff6;
+            margin-bottom: 2.5rem;
+            max-width: 400px;
+        }
+        @media (max-width: 700px) {
+            .main-content {
+                left: 0;
+                right: 0;
+                margin: auto;
+                padding: 2rem;
+                position: static;
+                transform: none;
+            }
+            h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <h1 class="logo">🔬 Research Jobs</h1>
-            <div class="nav-buttons">
-                <button class="nav-btn active" data-view="list">📋 Jobs</button>
-                <button class="nav-btn" data-view="map">🗺️ Map</button>
-            </div>
-        </div>
-    </nav>
-
-    <main class="container">
-        <!-- Jobs List View -->
-        <div id="list-view" class="view active">
-            <div class="search-bar">
-                <input type="text" id="search-input" placeholder="Search jobs by title, description, or tags...">
-            </div>
-            <div id="jobs-container" class="jobs-grid">
-                <div class="loading">Loading jobs...</div>
-            </div>
-        </div>
-
-        <!-- Map View -->
-        <div id="map-view" class="view">
-            <div id="map"></div>
-            <div class="map-controls">
-                <button id="locate-btn" class="btn-locate">📍 My Location</button>
-            </div>
-        </div>
-    </main>
-
-    <!-- Job Detail Modal -->
-    <div id="job-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div id="job-details"></div>
-        </div>
+    <div class="main-content">
+        <div class="logo">Labry Research</div>
+        <div class="subtitle">We're almost there</div>
+        <h1>Coming Soon</h1>
+        <div class="desc">Join our newsletter to be the first to know when Labry launches and receive updates on the latest in research and technology.</div>
     </div>
-
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="app.js"></script>
 </body>
 </html>
