@@ -8,119 +8,196 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Labry Research - Coming Soon</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
-    <style>
-        html, body, .wrapper { height: 100%; margin: 0; padding: 0; }
-        body {
-            font: 1rem / 1.516 'Montserrat', Arial, sans-serif;
-            background: #d0f5e8;
-            position: relative;
-            min-height: 100vh;
-        }
-        .wrapper {
-            position: relative;
-            height: 100%;
-        }
-        .wrapper:before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(33, 33, 33, .25);
-            z-index: 0;
-        }
-        header, .content, footer {
-            position: absolute;
-            width: 100%;
-            z-index: 1;
-        }
-        header { top: 0; text-align: center; }
-        .header__logo {
-            max-width: 80px;
-            margin-top: 24px;
-            border-radius: 16px;
-            box-shadow: 0 2px 8px rgba(67,160,71,0.08);
-            background: #fff;
-        }
-        .content {
-            top: 50%; left: 50%; text-align: center; color: #fff;
-            transform: translate(-50%, -50%);
-        }
-        h1 { margin-top: 0; font-size: 3rem; letter-spacing: 2px; }
-        .desc { font-size: 2.2rem; margin-bottom: 2.5rem; }
-        .countdown { margin: auto; display: table; font-size: 56px; font-weight: 500; }
-        .countdown > div { float: left; min-width: 160px; }
-        .countdown span { position: relative; display: block; font-size: 32px; text-align: center; margin-top: 8px; }
-        .countdown span:before {
-            content: '';
-            position: absolute;
-            top: -2px; right: 0; left: 0; margin: auto; width: 20px; height: 1px; background: #fff;
-        }
-        footer { padding-bottom: 12px; bottom: 0; }
-        .footer__links { text-align: center; list-style-type: none; padding: 0; }
-        .footer__links li { display: inline-block; }
-        .footer__links li:nth-of-type(n+2) { margin-left: 12px; }
-        .footer__links a {
-            padding: 8px 0; display: block; width: 41px; text-align: center; color: #fff;
-            border: 1px solid; border-radius: 50%; transition: opacity .235s ease-in-out;
-        }
-        .footer__links a:hover { opacity: .5; }
-        .footer__links .fa { vertical-align: middle; font-size: 21px; }
-        @media (max-width: 700px) {
-            .content { padding: 2rem; position: static; transform: none; }
-            h1 { font-size: 2.2rem; }
-            .countdown > div { min-width: 60px; font-size: 18px; }
-        }
-    </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            :root {
+                --color-bg: #F8F9FA;
+                --color-bg-gradient-top: #FFFFFF;
+                --color-bg-gradient-bottom: #F5F6F7;
+                --color-card-bg: #FFFFFF;
+                --color-card-border: #E5E7EB;
+                --color-card-shadow: 0px 2px 8px rgba(0,0,0,0.04);
+                --color-primary: #1F2937;
+                --color-secondary: #6B7280;
+                --color-footer: #9CA3AF;
+                --color-divider: #E5E7EB;
+                --font-main: 'Inter', 'SF Pro Display', 'Segoe UI', Arial, sans-serif;
+            }
+            html, body, .wrapper { height: 100%; margin: 0; padding: 0; }
+            body {
+                font-family: var(--font-main);
+                background: linear-gradient(to bottom, var(--color-bg-gradient-top), var(--color-bg-gradient-bottom));
+                min-height: 100vh;
+                animation: fadeIn 0.6s ease-in-out;
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            .wrapper {
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            header {
+                width: 100%;
+                text-align: center;
+                padding-top: 80px;
+                margin-bottom: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .header__logo {
+                width: 112px;
+                height: 112px;
+                border-radius: 16px;
+                box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
+                background: var(--color-card-bg);
+                margin-bottom: 16px;
+            }
+            .company-name {
+                font-size: 24px;
+                font-weight: 600;
+                color: var(--color-primary);
+                margin-bottom: 0;
+            }
+            .content {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-top: 48px;
+            }
+            .heading {
+                font-size: 32px;
+                font-weight: 600;
+                color: var(--color-primary);
+                margin-bottom: 16px;
+                text-align: center;
+            }
+            .tagline {
+                font-size: 16px;
+                font-weight: 400;
+                color: var(--color-secondary);
+                margin-bottom: 48px;
+                text-align: center;
+            }
+            .countdown {
+                display: flex;
+                gap: 16px;
+                justify-content: center;
+                margin-bottom: 48px;
+                flex-wrap: wrap;
+            }
+            .countdown__card {
+                background: var(--color-card-bg);
+                border: 1px solid var(--color-card-border);
+                box-shadow: var(--color-card-shadow);
+                border-radius: 12px;
+                padding: 32px 24px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                min-width: 120px;
+            }
+            .countdown__number {
+                font-size: 64px;
+                font-weight: 700;
+                color: var(--color-primary);
+                font-family: var(--font-main);
+                margin-bottom: 8px;
+            }
+            .countdown__label {
+                font-size: 14px;
+                font-weight: 400;
+                color: var(--color-secondary);
+                text-transform: uppercase;
+                letter-spacing: 1.5px;
+                font-family: var(--font-main);
+            }
+            @media (max-width: 640px) {
+                .countdown {
+                    flex-direction: column;
+                    gap: 16px;
+                }
+                .countdown__card {
+                    min-width: 0;
+                    width: 100%;
+                }
+            }
+            .footer-divider {
+                width: 100%;
+                height: 1px;
+                background: var(--color-divider);
+                margin: 0 auto;
+                margin-top: 60px;
+            }
+            footer {
+                width: 100%;
+                text-align: center;
+                margin-top: 24px;
+                margin-bottom: 24px;
+                font-size: 14px;
+                color: var(--color-footer);
+            }
+        </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap">
 </head>
 <body>
-    <div class="wrapper">
-        <header>
-            <img class="header__logo" src="https://media.licdn.com/dms/image/v2/D4E0BAQGH7IVdrY3q4w/company-logo_100_100/B4EZqUj_vgGYAQ-/0/1763429055981/labrary_research_logo?e=1766016000&v=beta&t=Cqv614j2xKKvRAbszxBspKrapMlI_N1fvIJMsYsQXqg" alt="Labry Research Logo" />
-        </header>
-        <main class="content">
-            <div class="countdown">
-                <div class="countdown__days">
-                    <div class="number"></div>
-                    <span>Days</span>
+        <div class="wrapper">
+            <header>
+                <img class="header__logo" src="https://media.licdn.com/dms/image/v2/D4E0BAQGH7IVdrY3q4w/company-logo_100_100/B4EZqUj_vgGYAQ-/0/1763429055981/labrary_research_logo?e=1766016000&v=beta&t=Cqv614j2xKKvRAbszxBspKrapMlI_N1fvIJMsYsQXqg" alt="Labry Research Logo" />
+                <div class="company-name">Labrary Research</div>
+            </header>
+            <main class="content">
+                <div class="heading">Labrary Research (coming soon)</div>
+                <div class="tagline">Enterprise knowledge management solution</div>
+                <div class="countdown">
+                    <div class="countdown__card">
+                        <div class="countdown__number" id="days"></div>
+                        <div class="countdown__label">Days</div>
+                    </div>
+                    <div class="countdown__card">
+                        <div class="countdown__number" id="hours"></div>
+                        <div class="countdown__label">Hours</div>
+                    </div>
+                    <div class="countdown__card">
+                        <div class="countdown__number" id="minutes"></div>
+                        <div class="countdown__label">Minutes</div>
+                    </div>
+                    <div class="countdown__card">
+                        <div class="countdown__number" id="seconds"></div>
+                        <div class="countdown__label">Seconds</div>
+                    </div>
                 </div>
-                <div class="countdown__hours">
-                    <div class="number"></div>
-                    <span>Hours</span>
-                </div>
-                <div class="countdown__minutes">
-                    <div class="number"></div>
-                    <span>Minutes</span>
-                </div>
-                <div class="countdown__seconds">
-                    <div class="number"></div>
-                    <span>Seconds</span>
-                </div>
-            </div>
-            <div class="desc">Labrary Research (coming soon)</div>
-        </main>
-        <!-- Footer removed as requested -->
-    </div>
-    <script>
-        (() => {
-            // Deadline: Dec 1, 2025 00:00:00
-            const deadlineDate = new Date('December 1, 2025 00:00:00').getTime();
-            const countdownDays = document.querySelector('.countdown__days .number');
-            const countdownHours = document.querySelector('.countdown__hours .number');
-            const countdownMinutes = document.querySelector('.countdown__minutes .number');
-            const countdownSeconds = document.querySelector('.countdown__seconds .number');
-            setInterval(() => {
-                const currentDate = new Date().getTime();
-                const distance = deadlineDate - currentDate;
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                countdownDays.innerHTML = days >= 0 ? days : 0;
-                countdownHours.innerHTML = hours >= 0 ? hours : 0;
-                countdownMinutes.innerHTML = minutes >= 0 ? minutes : 0;
-                countdownSeconds.innerHTML = seconds >= 0 ? seconds : 0;
-            }, 1000);
-        })();
-    </script>
+            </main>
+            <div class="footer-divider"></div>
+            <footer>
+                For enterprise inquiries: contact@labryresearch.org
+            </footer>
+        </div>
+        <script>
+            (() => {
+                // Deadline: Dec 1, 2025 00:00:00
+                const deadlineDate = new Date('December 1, 2025 00:00:00').getTime();
+                const countdownDays = document.getElementById('days');
+                const countdownHours = document.getElementById('hours');
+                const countdownMinutes = document.getElementById('minutes');
+                const countdownSeconds = document.getElementById('seconds');
+                setInterval(() => {
+                    const currentDate = new Date().getTime();
+                    const distance = deadlineDate - currentDate;
+                    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                    countdownDays.innerHTML = days >= 0 ? days : 0;
+                    countdownHours.innerHTML = hours >= 0 ? hours : 0;
+                    countdownMinutes.innerHTML = minutes >= 0 ? minutes : 0;
+                    countdownSeconds.innerHTML = seconds >= 0 ? seconds : 0;
+                }, 1000);
+            })();
+        </script>
 </body>
 </html>
