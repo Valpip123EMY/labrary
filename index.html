@@ -100,6 +100,8 @@
                 flex-direction: column;
                 align-items: center;
                 min-width: 120px;
+                box-sizing: border-box;
+                transition: padding 0.2s, min-width 0.2s;
             }
             .countdown__number {
                 font-size: 64px;
@@ -107,6 +109,7 @@
                 color: var(--color-primary);
                 font-family: var(--font-main);
                 margin-bottom: 8px;
+                transition: font-size 0.2s;
             }
             .countdown__label {
                 font-size: 14px;
@@ -124,7 +127,19 @@
                 .countdown__card {
                     min-width: 0;
                     width: 100%;
+                    padding: 18px 8px;
                 }
+                .countdown__number {
+                    font-size: 36px;
+                }
+                        @media (max-width: 400px) {
+                            .countdown__number {
+                                font-size: 24px;
+                            }
+                            .countdown__card {
+                                padding: 12px 4px;
+                            }
+                        }
             }
             .footer-divider {
                 width: 100%;
