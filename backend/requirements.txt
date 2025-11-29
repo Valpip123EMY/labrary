@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+sqlmodel
+asyncpg
+alembic
+python-multipart
+pydantic-settings
+redis
+fastapi-limiter
+httpx
+beautifulsoup4
+# geoalchemy2 # Optional for now, keeping it simple

@@ -1,0 +1,8 @@
+# Ignore environment files with secrets
+backend/.env
+*.pyc
+__pycache__/
+temp_labrary_research/
+.vscode/
+.DS_Store
+node_modules/
